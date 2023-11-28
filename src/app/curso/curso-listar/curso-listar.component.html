@@ -1,0 +1,71 @@
+<header>
+  <nav >
+      <div class="container-fluid">
+          <img src="https://cdn-icons-png.flaticon.com/512/6943/6943947.png" width="50px" alt="logo" class="logo">
+          <h1 class="titulo-proyecto"><b>Cursos En Linea</b></h1>
+      </div>
+  </nav>
+</header>
+
+<div class="container" style="margin: 20px;">
+  <div class="row">
+      <div class="col-md-8">
+          <table class="table">
+
+              <thead style="background-color: rgb(230, 230, 230);">
+                  <tr>
+                      <th><b>#</b></th>
+                      <th><b>Nombre</b></th>
+                      <th><b>Plataforma</b></th>
+                      <th><b>Lanzamiento</b></th>
+                      <th><b>Duracion(h)</b></th>
+                  </tr>
+              </thead>
+
+              <tbody class="table-active">
+                <tr *ngFor="let curso of cursos" (click)="onSelected(curso)">
+                  <td><b>{{curso.id}}</b></td>
+                  <td>
+                    <a href="#"> {{curso.title}}</a>
+                  </td>
+                  <td>
+                    {{curso.platform}}</td>
+                  <td>
+                    {{curso.launch_year}}</td>
+                  <td>
+                    {{curso.duration_hours}}</td>
+                </tr>
+              </tbody>
+
+          </table>
+          <div class="row">
+            <div class="col-2">
+              <p>Los cursos </p>
+            </div>
+          <div class="col-1" *ngFor="let curso of cursosFiltrados">
+
+            <p *ngIf="curso!=cursosFiltrados[cursosFiltrados.length-2] && curso!=cursosFiltrados[cursosFiltrados.length-1]" ><b>{{curso.id}},</b></p>
+            <p *ngIf="curso==cursosFiltrados[cursosFiltrados.length-2]" ><b>{{curso.id}}</b></p>
+            <p *ngIf="curso==cursosFiltrados[cursosFiltrados.length-1]" ><b> y {{curso.id}}</b></p>
+
+          </div>
+
+          <div class="col">
+          <p>ofrecen certificado</p>
+          </div>
+          </div>
+
+        </div>
+
+        <div class = "col-md-4" *ngIf="selected" >
+          <app-curso-detail [cursoDetail]="selectedCurso"></app-curso-detail>
+        </div>
+
+
+  </div>
+</div>
+
+
+
+
+

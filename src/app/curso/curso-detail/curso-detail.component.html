@@ -1,0 +1,14 @@
+<div class="card text-center" style="width: 19rem;">
+  <img class="card-img-top" src="{{cursoDetail.image}}" style="height: auto;">
+  <div class="card-body">
+    <h1 class="card-title" style="font-size: larger;">{{cursoDetail.title}}</h1>
+    <p>{{cursoDetail.description}}</p>
+    <div *ngIf="cursoDetail.offers_certificate">
+      <p id="respuesta">Si Ofrece certificado</p>
+    </div>
+    <div *ngIf="!cursoDetail.offers_certificate">
+      <p id="respuesta">No Ofrece certificado</p>
+    </div>
+
+  </div>
+</div>
