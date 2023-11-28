@@ -14,8 +14,4 @@ constructor(private http: HttpClient) { }
   getCursos(): Observable<Curso[]> {
     return this.http.get<Curso[]>(`${this.baseUrl}`);
   }
-
-  getCurso(id: string): Observable<Curso> {
-    return this.http.get<Curso>(`${this.baseUrl}`+ '/' + id);
-  }
 }

@@ -17,18 +17,6 @@ export class CursoDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private cursoService: CursoService) { }
 
-    getCurso(){
-      this.cursoService.getCurso(this.cursoId).subscribe(apiData => {
-        this.cursoDetail = apiData;
-      })
-    }
-
   ngOnInit() {
-    if(this.cursoDetail === undefined){
-      this.cursoId = this.route.snapshot.paramMap.get('id')!
-      if(this.cursoId){
-        this.getCurso();
-      }
-    }
   }
   }
